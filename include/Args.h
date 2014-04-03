@@ -16,14 +16,15 @@
 class Args
 {
 public:
-    double m;
-    double E;
-    std::string ifname;
-    double R1;
-    double dr;
-    bool   is_jost;
-    double R_jost;
-    static const double HbarC = 197.3;
+  double m;
+  double E;
+  std::string ifname;
+  std::string func_name;
+  double R1;
+  double dr;
+  bool   is_jost;
+  double R_jost;
+  static const double HbarC = 197.3;
     
 
     

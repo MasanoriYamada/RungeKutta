@@ -45,6 +45,11 @@ void Args::set(int argc, char* argv[])
             argc-=2; argv+=2;
             continue;
         }
+        if(strcmp(argv[0],"-Func")==0){
+            func_name = argv[1];
+            argc-=2; argv+=2;
+            continue;
+        }
         
         usage();
         exit(1);
