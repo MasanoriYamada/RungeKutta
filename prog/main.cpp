@@ -63,16 +63,17 @@ int main(int argc, char* argv[])
 //    solve schrodinger eq
 //---------------------------------------------------//
     
-    Derivs derivs;
-    VecDoub ystart(4);
-    ystart[0] = 0.0;
-    ystart[1] = 1.0;
-    Output phi(1000);
-        
-    Odeint<StepperDopr5<Derivs> >
-    ode(ystart, 0.0, args.R1, 1.0e-8, 1.0e-8, args.dr, 0.0, phi, derivs);
-    ode.integrate(); 
-        
+    {    
+      Derivs derivs;
+      VecDoub ystart(4);
+      ystart[0] = 0.0;
+      ystart[1] = 1.0;
+      Output phi(1000);
+      
+      Odeint<StepperDopr5<Derivs> >
+	ode(ystart, 0.0, args.R1, 1.0e-8, 1.0e-8, args.dr, 0.0, phi, derivs);
+      ode.integrate(); 
+      
 
 //---------------------------------------------------------------------
 // solve jost function
@@ -150,9 +151,10 @@ int main(int argc, char* argv[])
                -real((I/2.0)*F[divide::Minus]*h[0][divide::Plus ])/r
                );
     
-    }
+	       }
 std::cout<< "# ALL finished"<< std::endl;
-*/
+    */
+    }
 return 0;
 }
 

@@ -8,7 +8,7 @@ do
     for func in 1g1yy
     do
 #	for dim in {1D,3D} 
-	for dim in 3D 
+	for dim in 1D 
 	do
 	    echo "bin ="$bin $func $dim "t = 7,8,9"
 	    
@@ -20,9 +20,9 @@ do
 
 		do
 	   		#in file
-		    ifile="../in/spin00.bin$bin/fitPot/bin/$(printf %s%s $func $dim).$(printf %06d-000000 $MAXconf).RC16x32_B1830Kud013760Ks013710C1761.it$(printf %02d $it)"
+		    ifile="/Users/hoge/data/omgomg/RC16x32_B1830Kud013760Ks013710C1761/results/ts32/ave/fitPot/$(printf %s%s $func $dim).$(printf %06d-000000 $MAXconf).RC16x32_B1830Kud013760Ks013710C1761.it$(printf %02d $it)"
 	    #out file
-		    ofile="spin00.bin${bin}/fitPot/jack/$(printf %s $func).$(printf %06d-000000 $MAXconf).RC16x32_B1830Kud013760Ks013710C1761.it$(printf %02d $it)"
+		    ofile="/Users/hoge/data/omgomg/RC16x32_B1830Kud013760Ks013710C1761/results/ts32/ave/Smatrix/$(printf %s $func).$(printf %06d-000000 $MAXconf).RC16x32_B1830Kud013760Ks013710C1761.it$(printf %02d $it)"
 		    ./RungeKutta.out -E $E -mass 2104.61 -ifname $ifile -solve 10.0 0.1 -Jost 8.0 -Func $func 
 	    #echo "$ifile"
 		done
