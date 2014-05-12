@@ -13,6 +13,7 @@
 #include "Phase.h"
 #include "pot1g1y.h"
 #include "pot1g1yy.h"
+#include "pot2g1yy.h"
 
 #include "NR304/nr3.h"
 #include "NR304/odeint.h"
@@ -53,6 +54,10 @@ int main(int argc, char* argv[])
     else if("1g1y" == args.func_name)
     {
         potential = new Potential(new Pot1g1y());
+    }
+    else if("2g1yy" == args.func_name)
+    {
+        potential = new Potential(new Pot2g1yy());
     }
     else
     {
@@ -119,16 +124,17 @@ int main(int argc, char* argv[])
 // out put
 //---------------------------------------------------------------------
     
-    printf("%1.16e %1.16e %1.16e %1.16e %1.16e\n", args.E, real(1.0/S), imag(1.0/S),
-           phase.getPhase(S).real(), phase.getPhase(S).imag());
+    printf("%1.16e %1.16e %1.16e %1.16e %1.16e %1.16e %1.16e %1.16e %1.16e\n", args.E, real(1.0/S), imag(1.0/S),
+           phase.getPhase(S).real(), phase.getPhase(S).imag(),
+	   k.real(), k.imag(), phase.getKcotPhase(k, S).real(), phase.getKcotPhase(k, S).imag());
 
 //printf("%1.16e %1.16e %1.16e %1.16e \n", rE, iE , S.real(), S.imag());
 //        }
 //    }
 
-    /*
-    printf("%1.16e %1.16e %1.16e\n", args.E, real(1.0/S), imag(1.0/S));
     
+    //printf("%1.16e %1.16e %1.16e\n", args.E, real(1.0/S), imag(1.0/S));
+    /*
     printf("# F(+k)  = %1.16e %1.16e\n",
            real(F[divide::Plus]),  imag(F[divide::Plus]));
     printf("# F(-k)  = %1.16e %1.16e\n",

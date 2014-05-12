@@ -15,5 +15,15 @@ Complex Phase::getPhase(Complex S)
 {
     Complex phase = log(S) / (2.0 * I);
     Complex degree = phase * 180.0 / M_PI;
+    if(degree.real() < 0.0)
+      {
+	degree = degree + 180.0;
+      }
     return degree;
+}
+
+Complex Phase::getKcotPhase(Complex k,Complex S)
+{
+  Complex rad = log(S) / (2.0 * I);
+  return k / tan(rad);
 }

@@ -17,8 +17,8 @@ class Phase
 public:
     Phase(){};
     ~Phase(){};
-Complex    getPhase(Complex S);
-    
+  Complex    getPhase(Complex S);
+  Complex    getKcotPhase(Complex k, Complex S);
 };
 
 
